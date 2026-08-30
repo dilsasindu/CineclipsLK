@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineClips LK - Movie Scenes & Shorts</title>
+    <style>
+        :root {
+            --bg-color: #0d0f12;
+            --card-bg: #1a1d24;
+            --accent-color: #e50914;
+            --text-color: #ffffff;
+            --text-secondary: #a0a0a0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(13,15,18,1)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000') center/cover;
+            padding: 60px 20px 40px;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+
+        p.subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-fb {
+            display: inline-block;
+            background-color: #1877f2;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-fb:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            background-color: #333;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-tag {
+            background-color: var(--accent-color);
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin: 10px 0 5px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid #222;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://via.placeholder.com/110/e50914/ffffff?text=CineClips" alt="CineClips LK Logo" class="profile-img">
+        <h1>CineClips LK</h1>
+        <p class="subtitle">Best movie scenes, dialogues & shorts | LK #1 Movie Reels</p>
+        <a href="https://facebook.com" target="_blank" class="btn-fb">Follow on Facebook</a>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Latest Clips & Shorts</h2>
+        
+        <div class="grid" id="clipsGrid">
+            </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 CineClips LK. Contact: cineclipslk@gmail.com</p>
+    </footer>
+
+    <script>
+        const clips = [
+            {
+                title: "KGF 02 CINEMATIC SERIES - EP 01 👑",
+                desc: "Rocky Bhai ගේ entry එකෙන් පටන් ගමු...",
+                tag: "Reel",
+                img: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=500"
+            },
+            {
+                title: "Epic Dialogues Collection",
+                desc: "ලංකාවේ වැඩිපුරම කතාබහ වුනු සුපිරිම Dialogues ටික.",
+                tag: "Dialogue",
+                img: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=500"
+            },
+            {
+                title: "Top Action Scenes 2026",
+                desc: "හදවත නතර වෙන ත්‍රාසජනක සිනමා ජවනිකා.",
+                tag: "Action",
+                img: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=500"
+            }
+        ];
+
+        const container = document.getElementById('clipsGrid');
+        
+        clips.forEach(clip => {
+            const cardHTML = `
+                <div class="card">
+                    <img src="${clip.img}" class="card-img" alt="${clip.title}">
+                    <div class="card-content">
+                        <span class="card-tag">${clip.tag}</span>
+                        <h3 class="card-title">${clip.title}</h3>
+                        <p class="card-desc">${clip.desc}</p>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += cardHTML;
+        });
+    </script>
+
+</body>
+</html>
